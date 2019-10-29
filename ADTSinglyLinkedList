@@ -1,0 +1,15 @@
+Abstract data type Singly Linked List 
+
+size(): Returns the number of elements in the list 
+
+isEmpty(): Returns true if the list is empty
+
+first(): Returns but does not remove the first element of the list 
+
+last(): Returns but does not remove the last element of the list (lastList in Haskell due to conflicts with Prelude)
+
+addFirst(): Adds a new element to the front of the list 
+
+addLast(): Adds a new element to the end of the list
+
+removeFirst(): Removes and returns the first element of the list
