@@ -1,0 +1,52 @@
+module SinglyLinkedList where
+
+-- using the abstract data type of java as remarks with all the functions
+
+-- Algabraic Data Type for a singly linked list 
+data List a = Nil | Cons a (List a) 
+  deriving Show
+
+-- Returns the number of elements in the list 
+size :: List a -> Int
+size Nil = 0
+size (Cons _ l) = 1 + size l
+
+-- Returns true if the list is empty 
+isEmpty :: List a -> Bool
+isEmpty x = size x == 0 
+
+-- Returns but does not remove the first element of the list 
+first :: List a -> a 
+first Nil        = error ("This list is empty")
+first (Cons x l) = x
+
+-- Returns but does not remove the last element of the list
+lastList :: List a -> a
+lastList Nil          = error ("This list is empty")
+lastList (Cons x Nil) = x
+lastList (Cons x l)   = lastList l
+
+-- Adds a new element to the front of the list 
+addFirst :: a -> List a -> List a 
+addFirst x Nil = (Cons x Nil) 
+addFirst x (Cons y l) = (Cons x (Cons y l))
+
+-- Adds a new element to the end of the list
+addLast :: a -> List a -> List a 
+addLast x Nil          = (Cons x Nil) 
+addLast x (Cons y l)   = (Cons y (addLast x l)) 
+
+-- Removes and returns the first element of the list
+removeFirst :: List a -> List a
+removeFirst Nil        = error ("This list is empty")
+removeFirst (Cons x l) = l
+
+-- lists for testing purposes
+list_1 :: List Int 
+list_1 = Cons 1 (Cons 2 (Cons 3 (Cons 4 (Cons 5 Nil))))
+
+list_2 :: List Bool
+list_2 = Nil
+
+list_3 :: List Char
+list_3 = Cons 'G' (Cons 'e' (Cons 'o' (Cons 'r' (Cons 'g' (Cons 'e' Nil)))))
